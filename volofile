@@ -1,3 +1,5 @@
+var FS = require('fs');
+
 module.exports = {
 
     onCreate: function(d, v, namedArgs, projectName) {
@@ -22,8 +24,11 @@ module.exports = {
             }));
         });
 
-        // Rename bin/app.in to bin/{app}
-        v.mv('bin/app.in', 'bin/', projectName);
+        // Rename bin/app.in to bin/{app} and make it executable
+        var from = 'bin/app.in',
+            to = 'bin/' + projectName;
+        v.mv(from, to);
+        FS.chmodSync(to, '0755');
 
         // Rename README.md.in to README.md
         v.mv('README.md.in', 'README.md');
