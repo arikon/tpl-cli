@@ -36,6 +36,15 @@ module.exports = {
         // Remove this volofile
         v.rm('volofile');
 
+        console.log([
+            'Project directory is ready!',
+            '',
+            'Do not forget to',
+            '- run `npm init` to initialize npm package',
+            '- run `git init` to create git repository',
+            '- commit your project'
+            ].join('\n'));
+
         d.resolve();
 
     }
