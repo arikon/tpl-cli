@@ -1,0 +1,37 @@
+{
+  "name": "{app}",
+  "version": "0.0.0",
+  "homepage": "http://github.com/arikon/tpl-cli",
+  "author": "Sergey Belov <peimei@ya.ru> (http://github.com/arikon)",
+  "bugs": {
+    "url": "http://github.com/arikon/tpl-cli/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/arikon/tpl-cli.git"
+  },
+  "engines": {
+    "node": ">= 0.6.0"
+  },
+  "dependencies": {
+    "q": "*",
+    "coa": "*"
+  },
+  "devDependencies": {
+    "istanbul": "*",
+    "mocha-as-promised": "*",
+    "mocha-istanbul": "*",
+    "mocha": "*"
+  },
+  "optionalDependencies": {},
+  "scripts": {
+    "test": "make test",
+    "coverage": "make coverage"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/arikon/tpl-cli/raw/master/LICENSE"
+    }
+  ]
+}
