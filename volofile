@@ -9,7 +9,9 @@ module.exports = {
             'package.json',
             'index.js',
             'GNUmakefile',
-            'README.md'
+            'ChangeLog.md',
+            'README.md',
+            'LICENSE'
         ].forEach(function (name) {
             v.write(name, v.template(v.read(name), {
                 app: projectName,
