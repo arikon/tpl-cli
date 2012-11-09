@@ -1,0 +1,29 @@
+module.exports = {
+
+    onCreate: function(d, v, namedArgs, projectName) {
+
+        var date = new Date();
+
+        // Update the files that reference this project by name
+        [
+            'package.json',
+            'index.js',
+            'GNUmakefile',
+            'README.md'
+        ].forEach(function (name) {
+            v.write(name, v.template(v.read(name), {
+                app: projectName,
+                APP: projectName.toUpperCase(),
+                year: date.getFullYear(),
+                date: date.toString('dd.MM.yyyy')
+            }));
+        });
+
+        //Remove this volofile.
+        v.rm('volofile');
+
+        d.resolve();
+
+    }
+
+};
