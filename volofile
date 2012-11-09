@@ -11,7 +11,8 @@ module.exports = {
             'GNUmakefile',
             'ChangeLog.md',
             'README.md',
-            'LICENSE'
+            'LICENSE',
+            'bin/app.in'
         ].forEach(function (name) {
             v.write(name, v.template(v.read(name), {
                 app: projectName,
@@ -21,7 +22,10 @@ module.exports = {
             }));
         });
 
-        //Remove this volofile.
+        // Rename bin/app.in to bin/{app}
+        v.mv('bin/app.in', 'bin/', projectName);
+
+        // Remove this volofile
         v.rm('volofile');
 
         d.resolve();
