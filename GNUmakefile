@@ -12,7 +12,7 @@ test:
 
 .PHONY: coverage
 coverage: lib-cov
-	{APP}_COVER=1 $(BIN)/mocha --reporter mocha-istanbul
+	{APP_ENV}_COVER=1 $(BIN)/mocha --reporter mocha-istanbul
 	@echo
 	@echo Open html-report/index.html file in your browser
 

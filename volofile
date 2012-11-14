@@ -4,7 +4,8 @@ module.exports = {
 
     onCreate: function(d, v, namedArgs, projectName) {
 
-        var date = new Date();
+        var date = new Date(),
+            projectUpper = projectName.toUpperCase();
 
         // Update the files that reference this project by name
         [
@@ -18,7 +19,8 @@ module.exports = {
         ].forEach(function (name) {
             v.write(name, v.template(v.read(name), {
                 app: projectName,
-                APP: projectName.toUpperCase(),
+                APP: projectUpper,
+                APP_ENV: projectUpper.replace('-', '_'),
                 year: date.getFullYear(),
                 date: date.toString('dd.MM.yyyy')
             }));
