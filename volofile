@@ -27,7 +27,7 @@ module.exports = {
             v.write(name, v.template(v.read(name), {
                 app: projectName,
                 APP: projectUpper,
-                APP_ENV: projectUpper.replace('-', '_'),
+                APP_ENV: projectUpper.replace(/-/g, '_'),
                 year: year,
                 date: dateStr
             }));
