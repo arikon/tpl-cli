@@ -10,6 +10,8 @@ Project template for the command line [COA](https://github.com/veged/coa)-based 
   - run tests by executing `make test`
   - produce code coverage report by executing `make coverage`
 - Preconfigured [Travis CI](http://travis-ci.org) integration
+- Contributing Guide in CONTRIBUTING.md
+- ChangeLog stub in ChangeLog.md
 
 ## How to use
 
