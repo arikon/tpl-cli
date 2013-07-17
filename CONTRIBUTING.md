@@ -11,12 +11,12 @@
 ## Making Changes
 
 - Create a topic branch from where you want to base your work.
-  - This is usually the master branch.
+  - This is usually the `master` branch.
   - Only target release branches if you are certain your fix must be on that
     branch.
   - To quickly create a topic branch based on master: `git branch
-    fix/master/my_contribution master` then checkout the new branch with `git
-    checkout fix/master/my_contribution`. Please avoid working directly on the
+    hotfix/my_contribution master` then checkout the new branch with `git
+    checkout hotfix/my_contribution`. Please avoid working directly on the
     `master` branch.
 - Make commits of logical units.
 - Check for unnecessary whitespace with `git diff --check` before committing.
@@ -28,9 +28,11 @@
 ## Submitting Changes
 
 - Push your changes to a topic branch in your fork of the repository.
-- Submit a pull request to the repository in the bem organization.
+- Submit a pull request to the main repository.
 
 # Additional Resources
 
 - [General GitHub documentation](http://help.github.com/)
 - [GitHub pull request documentation](http://help.github.com/send-pull-requests/)
+- [Git Flow](http://nvie.com/posts/a-successful-git-branching-model/)
+- [GitHub Flow](http://scottchacon.com/2011/08/31/github-flow.html)
