@@ -1,5 +1,1 @@
-# {app} changelog
-
-## {date}, Version 0.0.0 (unstable)
-
-- Development started!
+See [{app} releases](https://github.com/arikon/{app}/releases).
