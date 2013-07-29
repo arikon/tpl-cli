@@ -21,6 +21,8 @@
     "coa": "*"
   },
   "devDependencies": {
+    "chai": "*",
+    "chai-as-promised": "*",
     "istanbul": "*",
     "mocha-as-promised": "*",
     "mocha-istanbul": "*",
