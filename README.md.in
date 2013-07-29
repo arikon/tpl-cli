@@ -1,3 +1,6 @@
 # {app}
+[![Build Status](https://secure.travis-ci.org/arikon/{app}.png?branch=master)](http://travis-ci.org/arikon/{app})
+[![NPM version](https://badge.fury.io/js/{app}.png)](http://badge.fury.io/js/{app})
+[![Dependency Status](https://david-dm.org/arikon/{app}.png)](https://david-dm.org/arikon/{app})
 
 App description.
