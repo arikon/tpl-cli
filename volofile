@@ -23,14 +23,18 @@ module.exports = {
             'README.md.in',
             'LICENSE',
             'bin/app.in'
-        ].forEach(function (name) {
-            v.write(name, v.template(v.read(name), {
+        ].forEach(function(name) {
+            var res = v.template(v.read(name), {
                 app: projectName,
                 APP: projectUpper,
                 APP_ENV: projectUpper.replace(/-/g, '_'),
                 year: year,
                 date: dateStr
-            }));
+            });
+            if (name === 'package.json') {
+                res = res.replace('"app"', projectName);
+            }
+            v.write(name, res);
         });
 
         // Rename bin/app.in to bin/{app} and make it executable
