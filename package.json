@@ -1,14 +1,14 @@
 {
   "name": "app",
   "version": "0.0.0",
-  "homepage": "http://github.com/arikon/tpl-cli",
+  "homepage": "http://github.com/arikon/{app}",
   "author": "Sergey Belov <peimei@ya.ru> (http://github.com/arikon)",
   "bugs": {
-    "url": "http://github.com/arikon/tpl-cli/issues"
+    "url": "http://github.com/arikon/{app}/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/arikon/tpl-cli.git"
+    "url": "git://github.com/arikon/{app}.git"
   },
   "engines": {
     "node": ">= 0.8.0"
@@ -36,7 +36,7 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "http://github.com/arikon/tpl-cli/raw/master/LICENSE"
+      "url": "http://github.com/arikon/{app}/raw/master/LICENSE"
     }
   ]
 }
