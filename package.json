@@ -26,7 +26,8 @@
     "istanbul": "*",
     "mocha-as-promised": "*",
     "mocha-istanbul": "*",
-    "mocha": "*"
+    "mocha": "*",
+    "coveralls": "*"
   },
   "optionalDependencies": {},
   "scripts": {
