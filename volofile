@@ -8,58 +8,87 @@ module.exports = {
             day = date.getDate(),
             month = date.getMonth() + 1,
             year = date.getFullYear(),
-            dateStr = day + '.' + month + '.' + year,
             projectUpper = projectName.toUpperCase();
 
         // Add leading zero to month
         if (String(month).length < 2) month = '0' + month;
 
-        // Update the files that reference this project by name
-        [
-            'package.json',
-            'index.js',
-            'GNUmakefile',
-            'ChangeLog.md',
-            'README.md.in',
-            'LICENSE',
-            'bin/app.in'
-        ].forEach(function(name) {
-            var res = v.template(v.read(name), {
-                app: projectName,
-                APP: projectUpper,
-                APP_ENV: projectUpper.replace(/-/g, '_'),
-                year: year,
-                date: dateStr
+        var dateStr = day + '.' + month + '.' + year;
+
+        v.prompt('Github login:')
+            .then(function(login) {
+                return [login, v.prompt('Author name:')];
+            })
+            .spread(function(login, name) {
+                return [
+                    login,
+                    name,
+                    v.prompt('Author email:')
+                ];
+            })
+            .spread(function(login, name, email) {
+                return [
+                    login,
+                    name,
+                    email,
+                    v.prompt('Github path (in organization/repo format):')
+                ];
+            })
+            .spread(function(login, name, email, ghPath) {
+                var ghUrl = 'github.com/' + ghPath;
+
+                // Update the files that reference this project by name
+                [
+                    'package.json',
+                    'index.js',
+                    'GNUmakefile',
+                    'ChangeLog.md',
+                    'README.md.in',
+                    'LICENSE',
+                    'bin/app.in'
+                ].forEach(function(file) {
+                    var res = v.template(v.read(file), {
+                        app: projectName,
+                        APP: projectUpper,
+                        APP_ENV: projectUpper.replace(/-/g, '_'),
+                        authorName: name,
+                        authorEmail: email,
+                        githubUrl: ghUrl,
+                        githubPath: ghPath,
+                        year: year,
+                        date: dateStr
+                    });
+                    if (file === 'package.json') {
+                        res = res.replace('"app"', projectName);
+                    }
+                    v.write(file, res);
+                });
+
+                // Rename bin/app.in to bin/{app} and make it executable
+                var from = 'bin/app.in',
+                    to = 'bin/' + projectName;
+                v.mv(from, to);
+                FS.chmodSync(to, '0755');
+
+                // Rename README.md.in to README.md
+                v.mv('README.md.in', 'README.md');
+
+                // Remove this volofile
+                v.rm('volofile');
+
+                console.log([
+                    'Project directory is ready!',
+                    '',
+                    'Do not forget to',
+                    '- run `npm init` to initialize npm package',
+                    '- run `git init` to create git repository',
+                    '- review CONTRIBUTING.md',
+                    '- commit your project'
+                    ].join('\n'));
+
+                d.resolve();
+
             });
-            if (name === 'package.json') {
-                res = res.replace('"app"', projectName);
-            }
-            v.write(name, res);
-        });
-
-        // Rename bin/app.in to bin/{app} and make it executable
-        var from = 'bin/app.in',
-            to = 'bin/' + projectName;
-        v.mv(from, to);
-        FS.chmodSync(to, '0755');
-
-        // Rename README.md.in to README.md
-        v.mv('README.md.in', 'README.md');
-
-        // Remove this volofile
-        v.rm('volofile');
-
-        console.log([
-            'Project directory is ready!',
-            '',
-            'Do not forget to',
-            '- run `npm init` to initialize npm package',
-            '- run `git init` to create git repository',
-            '- review CONTRIBUTING.md',
-            '- commit your project'
-            ].join('\n'));
-
-        d.resolve();
 
     }
 

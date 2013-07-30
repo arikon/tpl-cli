@@ -1,7 +1,7 @@
 # {app}
-[![Build Status](https://secure.travis-ci.org/arikon/{app}.png?branch=master)](http://travis-ci.org/arikon/{app})
-[![Coverage Status](https://coveralls.io/repos/arikon/{app}/badge.png)](https://coveralls.io/r/arikon/{app})
+[![Build Status](https://secure.travis-ci.org/{githubPath}.png?branch=master)](http://travis-ci.org/{githubPath})
+[![Coverage Status](https://coveralls.io/repos/{githubPath}/badge.png)](https://coveralls.io/r/{githubPath})
 [![NPM version](https://badge.fury.io/js/{app}.png)](http://badge.fury.io/js/{app})
-[![Dependency Status](https://david-dm.org/arikon/{app}.png)](https://david-dm.org/arikon/{app})
+[![Dependency Status](https://david-dm.org/{githubPath}.png)](https://david-dm.org/{githubPath})
 
 App description.

@@ -1,14 +1,14 @@
 {
   "name": "app",
   "version": "0.0.0",
-  "homepage": "http://github.com/arikon/{app}",
-  "author": "Sergey Belov <peimei@ya.ru> (http://github.com/arikon)",
+  "homepage": "http://{githubUrl}",
+  "author": "{authorName} <{authorEmail}> (http://github.com/{githubLogin})",
   "bugs": {
-    "url": "http://github.com/arikon/{app}/issues"
+    "url": "http://{githubUrl}/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/arikon/{app}.git"
+    "url": "git://{githubUrl}.git"
   },
   "engines": {
     "node": ">= 0.8.0"
@@ -38,7 +38,7 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "http://github.com/arikon/{app}/raw/master/LICENSE"
+      "url": "http://{githubUrl}/raw/master/LICENSE"
     }
   ]
 }
