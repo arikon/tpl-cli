@@ -18,7 +18,8 @@
   },
   "dependencies": {
     "q": "*",
-    "coa": "*"
+    "coa": "*",
+    "update-notifier": "*"
   },
   "devDependencies": {
     "chai": "*",
