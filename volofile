@@ -55,11 +55,12 @@ module.exports = {
                         authorEmail: email,
                         githubUrl: ghUrl,
                         githubPath: ghPath,
+                        githubLogin: login,
                         year: year,
                         date: dateStr
                     });
                     if (file === 'package.json') {
-                        res = res.replace('"app"', projectName);
+                        res = res.replace('"app"', '"' + projectName + '"');
                     }
                     v.write(file, res);
                 });
