@@ -1,1 +1,1 @@
-See [{app} releases](https://github.com/arikon/{app}/releases).
+See [{app} releases](https://github.com/{githubLogin}/{app}/releases).
