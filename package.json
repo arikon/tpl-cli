@@ -2,7 +2,7 @@
   "name": "app",
   "version": "0.0.0",
   "homepage": "http://{githubUrl}",
-  "author": "{authorName} <{authorEmail}> (http://github.com/{githubLogin})",
+  "author": "{authorName} <{authorEmail}> (http://{githubHost}/{githubLogin})",
   "bugs": {
     "url": "http://{githubUrl}/issues"
   },

@@ -15,27 +15,39 @@ module.exports = {
 
         var dateStr = day + '.' + month + '.' + year;
 
-        v.prompt('Github login:')
-            .then(function(login) {
-                return [login, v.prompt('Author name:')];
-            })
-            .spread(function(login, name) {
+        v.prompt('Github host [github.com]:')
+            .then(function(ghHost) {
                 return [
+                    ghHost || 'github.com',
+                    v.prompt('Github login:')
+                ];
+            })        
+            .spread(function(ghHost, login) {
+                return [
+                    ghHost,
+                    login,
+                    v.prompt('Author name:')
+                ];
+            })
+            .spread(function(ghHost, login, name) {
+                return [
+                    ghHost,
                     login,
                     name,
                     v.prompt('Author email:')
                 ];
             })
-            .spread(function(login, name, email) {
+            .spread(function(ghHost, login, name, email) {
                 return [
+                    ghHost,
                     login,
                     name,
                     email,
                     v.prompt('Github path (in organization/repo format):')
                 ];
             })
-            .spread(function(login, name, email, ghPath) {
-                var ghUrl = 'github.com/' + ghPath;
+            .spread(function(ghHost, login, name, email, ghPath) {
+                var ghUrl = ghHost + '/' + ghPath;
 
                 // Update the files that reference this project by name
                 [
@@ -53,6 +65,7 @@ module.exports = {
                         APP_ENV: projectUpper.replace(/-/g, '_'),
                         authorName: name,
                         authorEmail: email,
+                        githubHost: ghHost,
                         githubUrl: ghUrl,
                         githubPath: ghPath,
                         githubLogin: login,
